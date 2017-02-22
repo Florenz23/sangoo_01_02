@@ -7,7 +7,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:[UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         
         if configureDefaultRealm() {
-            createDummy()
             print("User already authed")
             window = UIWindow(frame: UIScreen.main.bounds)
             window?.rootViewController = CustomTabBarController()
@@ -30,10 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        window?.makeKeyAndVisible()
 //        window?.rootViewController = CustomTabBarController()
 
-    }
-    
-    func createDummy() {
-        checkIfRealmIsEmpty()
     }
     
     func logIn(animated: Bool = true) {

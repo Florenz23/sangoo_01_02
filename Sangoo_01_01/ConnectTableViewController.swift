@@ -56,7 +56,7 @@ class ConnectTableViewController: UITableViewController {
         DispatchQueue.main.async {
             // Show initial tasks
             if self.items.realm == nil, let list = self.realm.objects(User.self).first {
-                self.items = list.connectData
+                self.items = list.userData
             }
             self.tableView.reloadData()
         }

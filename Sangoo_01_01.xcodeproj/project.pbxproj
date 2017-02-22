@@ -28,7 +28,6 @@
 		C02169F51E3E33BE00BCA625 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02169F41E3E33BE00BCA625 /* CustomTabBarController.swift */; };
 		C02169F71E3E374C00BCA625 /* ConnectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02169F61E3E374C00BCA625 /* ConnectTableViewController.swift */; };
 		C02169F91E3E377800BCA625 /* ContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02169F81E3E377800BCA625 /* ContactTableViewController.swift */; };
-		C02169FB1E3E379800BCA625 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02169FA1E3E379800BCA625 /* SettingsTableViewController.swift */; };
 		C02F68771E52F35C00B9B19D /* GroupViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02F68761E52F35C00B9B19D /* GroupViewTableViewController.swift */; };
 		C03300A61E44DE0000526F7E /* LoadingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03300A51E44DE0000526F7E /* LoadingAnimation.swift */; };
 		C034BE001E4876F500D7703D /* EditSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C034BDFF1E4876F500D7703D /* EditSettingsTableViewController.swift */; };
@@ -46,6 +45,7 @@
 		C0C8C76E1E4CBC3400B6BDD9 /* RegistrationUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8C76D1E4CBC3400B6BDD9 /* RegistrationUserData.swift */; };
 		C0CCC3711E52587A0042BFBF /* SelectDataToShareTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CCC3701E52587A0042BFBF /* SelectDataToShareTableViewController.swift */; };
 		C0FAC67E1E537E10000AD55A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FAC67D1E537E10000AD55A /* LocationManager.swift */; };
+		C8BF49771E5DCD0800213D73 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BF49761E5DCD0800213D73 /* SettingsTableViewController.swift */; };
 		D0B8B11D3239515818B82F8F /* Pods_Sangoo_01_01.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C60C44AA55374ED04D244AE /* Pods_Sangoo_01_01.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,7 +74,6 @@
 		C02169F41E3E33BE00BCA625 /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		C02169F61E3E374C00BCA625 /* ConnectTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectTableViewController.swift; sourceTree = "<group>"; };
 		C02169F81E3E377800BCA625 /* ContactTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewController.swift; sourceTree = "<group>"; };
-		C02169FA1E3E379800BCA625 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		C02F68761E52F35C00B9B19D /* GroupViewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupViewTableViewController.swift; sourceTree = "<group>"; };
 		C03300A51E44DE0000526F7E /* LoadingAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingAnimation.swift; sourceTree = "<group>"; };
 		C034BDFF1E4876F500D7703D /* EditSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditSettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +93,7 @@
 		C0CCC3701E52587A0042BFBF /* SelectDataToShareTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDataToShareTableViewController.swift; sourceTree = "<group>"; };
 		C0FAC67D1E537E10000AD55A /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		C2A3942C8A70E9618D4275F9 /* Pods-Sangoo_01_01.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sangoo_01_01.debug.xcconfig"; path = "Sangoo_01_01/Pods/Target Support Files/Pods-Sangoo_01_01/Pods-Sangoo_01_01.debug.xcconfig"; sourceTree = "<group>"; };
+		C8BF49761E5DCD0800213D73 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		E3770501118B713A431347DF /* Pods-Sangoo_01_01.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sangoo_01_01.release.xcconfig"; path = "Sangoo_01_01/Pods/Target Support Files/Pods-Sangoo_01_01/Pods-Sangoo_01_01.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -196,7 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				C034BDFF1E4876F500D7703D /* EditSettingsTableViewController.swift */,
-				C02169FA1E3E379800BCA625 /* SettingsTableViewController.swift */,
+				C8BF49761E5DCD0800213D73 /* SettingsTableViewController.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -395,9 +395,9 @@
 				C0094BF51E5A27AB002D10F7 /* ConnectGroup.swift in Sources */,
 				C0034FC61E49D9A900C5CEC3 /* Constants.swift in Sources */,
 				C03D3F0F1E40DEC1005F5E76 /* FirstNameRegistrationTableViewController.swift in Sources */,
-				C02169FB1E3E379800BCA625 /* SettingsTableViewController.swift in Sources */,
 				C00F878E1E41F3C30082E28E /* DbClasses.swift in Sources */,
 				C0A59C701E407E9D00D41669 /* MessengerClass.swift in Sources */,
+				C8BF49771E5DCD0800213D73 /* SettingsTableViewController.swift in Sources */,
 				C0034FD01E4A24DA00C5CEC3 /* LogInViewController.swift in Sources */,
 				C03300A61E44DE0000526F7E /* LoadingAnimation.swift in Sources */,
 				C00F87881E41EFDF0082E28E /* UsernameRegistrationTableViewController.swift in Sources */,
