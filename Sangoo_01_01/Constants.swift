@@ -21,10 +21,10 @@ import Foundation
 struct Constants {
     #if os(OSX)
    // static let syncHost = "10.0.1.4"
-   static let syncHost = "localhost"
+   static let syncHost = "192.168.2.102"
     #else
     //static let syncHost = "10.0.1.4"
-    static let syncHost = "localhost"
+    static let syncHost = "192.168.2.102"
     #endif
     
     static let syncRealmPath = "sangoo"

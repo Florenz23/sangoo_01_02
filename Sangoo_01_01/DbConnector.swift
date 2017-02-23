@@ -24,15 +24,7 @@ private func setDefaultRealmConfiguration(with user: SyncUser) {
     
  //   if realm.isEmpty {
     if realm.isEmpty {
-        try! realm.write {
-            print("create Dummy")
-            let dummyContent = DummyDbContent()
-            dummyContent.iniAuth()
-            dummyContent.iniUser()
-            realm.add(dummyContent.authDataList)
-            realm.add(dummyContent.userList)
-            realm.add(dummyContent.connectListList)
-        }
+        //createDummy()
     }
     
     // FIXME: Remove once core supports ordered sets: https://github.com/realm/realm-core/issues/1206
@@ -60,13 +52,23 @@ private func setDefaultRealmConfiguration(with user: SyncUser) {
     }
 }
 
-
+func createDummy() {
+        try! realm.write {
+            print("create Dummy")
+            let dummyContent = DummyDbContent()
+            dummyContent.iniAuth()
+            dummyContent.iniUser()
+            realm.add(dummyContent.authDataList)
+            realm.add(dummyContent.userList)
+            realm.add(dummyContent.connectListList)
+        }
+}
 // Internal Functions
 
 // returns true on success
 func configureDefaultRealm() -> Bool {
     if let user = SyncUser.current {
-        //setDefaultRealmConfiguration(with: user)
+        setDefaultRealmConfiguration(with: user)
         return true
     }
     return false

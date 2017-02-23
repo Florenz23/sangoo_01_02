@@ -16,6 +16,7 @@ class PasswordRegistrationTableViewController: UITableViewController,UITextField
     var realm: Realm!
     var notificationToken: NotificationToken!
     var loadingAnimation = LoadingAnimation()
+    var realmHelper = RealmHelper()
     
     var cookie = LocalCookie()
 
@@ -24,7 +25,7 @@ class PasswordRegistrationTableViewController: UITableViewController,UITextField
         super.viewDidLoad()
         setupUI()
         //iniDummy()
-        setupRealm()
+        setupRealm(syncUser: SyncUser.current!)
     }
     
     func nextButtonTapped(_ button: UIButton) {
@@ -56,41 +57,26 @@ class PasswordRegistrationTableViewController: UITableViewController,UITextField
         userData5.descriptionGerman = "UserId"
         userData5.dataValue = authData.userId
         
+        user.userData.append(userData1)
+        user.userData.append(userData2)
+        user.userData.append(userData3)
+        user.userData.append(userData4)
+        user.userData.append(userData5)
+        
         print(user)
         
         try! realm.write {
             //authData.insert(AuthData(value: ["userId": NSUUID().uuidString, "userName": userName.text, "userPassword": userPassword.text]), at: 0)
             realm.add(self.authData)
-            realm.add(userData1)
-            realm.add(userData2)
-            realm.add(userData3)
-            realm.add(userData4)
-            realm.add(userData5)
-
+            realm.add(self.user)
         }
     }
 
     
-    func setupRealm() {
-        
-        setRealm(user: SyncUser.current!)
-        //defineUpdateList()
+    func setupRealm(syncUser : SyncUser) {
+        self.realm = self.realmHelper.iniRealm(syncUser: syncUser)
         
     }
-    
-    func setRealm(user : SyncUser) {
-        
-        DispatchQueue.main.async {
-            // Open Realm
-            let configuration = Realm.Configuration(
-                syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://10.0.1.4:9080/~/sangoo")!)
-            )
-            self.realm = try! Realm(configuration: configuration)
-            
-        }
-        
-    }
-    
     
     func setLocalCookie() -> Void {
         

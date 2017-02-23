@@ -60,7 +60,7 @@ class DummyDbContent {
         let userDataEmail1 = createUserData(description: "Email",value: "hillary@war.com")
         hillaryUser.userData.append(userDataEmail1)
         let userDataId1 = createUserData(description: "UserId",value: hillaryAuth.userId)
-        trumpUser.userData.append(userDataId1)
+        hillaryUser.userData.append(userDataId1)
         
         // trumpsPulbicListConnectData
         let trumpGroupDescription = createUserData(description: "Gruppenname",value: "Maga")
@@ -71,6 +71,14 @@ class DummyDbContent {
         message1.messageText = "Hi Hillary"
         let message2 = Message()
         message2.messageText = "Hi Donald"
+        
+        //add UserData
+        
+        message1.userData = trumpUser.userData
+        message2.userData = hillaryUser.userData
+        
+        //add UserId
+        
         
         
         //ConnectUserList

@@ -52,8 +52,7 @@ class InstantGroupJSQMessagesViewController: JSQMessagesViewController {
         }
     }
     override func viewDidAppear(_ animated: Bool) {
-        //addMessage()
-        //collectionView.reloadData()
+        super.viewDidAppear(false)
     }
     
     
@@ -74,15 +73,26 @@ class InstantGroupJSQMessagesViewController: JSQMessagesViewController {
             
             self.realm = self.realmHelper.iniRealm(syncUser: syncUser)
             self.user = self.realmHelper.getUser(user: self.user)
+            print("Location")
+            print(self.currentLocation)
+            //self.currentLocation = CLLocationCoordinate2DMake(37.33233141, -122.0312186)
             self.senderId  = self.user.userId
             func updateList() {
                 let radius = 50.00 // 50m
+                print("needLocation")
                 self.results = try! self.realm.findNearby(type: GeoData.self, origin: self.currentLocation!, radius: radius, sortAscending: true)
                 guard let r = self.results else { return }
-                self.messages = (r[0].connectList?.message)!
-                self.loadMessages()
-                self.group = r[0]
+                print(r)
+                if r.count != 0 {
+                    self.messages = (r[0].connectList?.message)!
+                    self.loadMessages()
+                    self.group = r[0]
+                }
                 self.handleSearchResults(groups: r)
+                if r.count == 0 {
+                    self.results = try! self.realm.findNearby(type: GeoData.self, origin: self.currentLocation!, radius: radius, sortAscending: true)
+                    guard let r = self.results else { return }
+                }
             }
             updateList()
             // Notify us when Realm changes
@@ -109,6 +119,8 @@ class InstantGroupJSQMessagesViewController: JSQMessagesViewController {
     
     // MARK: tableView
     func handleSearchResults(groups : [GeoData]) {
+        print("Anzahl gruppen")
+        print(groups.count)
         if groups.count == 0 {
             self.connectGroup.createNewGroup(user: self.user, location: self.currentLocation!, realm: self.realm)
         } else {

@@ -15,11 +15,12 @@ class UsernameRegistrationTableViewController: UITableViewController, UITextFiel
     var realm: Realm!
     var notificationToken: NotificationToken!
     var loadingAnimation = LoadingAnimation()
+    var realmHelper = RealmHelper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        setupRealm()
+        setupRealm(syncUser: SyncUser.current!)
     }
     
     
@@ -82,68 +83,11 @@ class UsernameRegistrationTableViewController: UITableViewController, UITextFiel
         return false
     }
     
-    func setupRealm() {
-        
-        setRealm(user: SyncUser.current!)
-        //defineUpdateList()
+    func setupRealm(syncUser : SyncUser) {
+        self.realm = self.realmHelper.iniRealm(syncUser: syncUser)
         
     }
     
-    func setRealm(user : SyncUser) {
-        
-        DispatchQueue.main.async {
-            // Open Realm
-            let configuration = Realm.Configuration(
-                syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://10.0.1.4:9080/~/sangoo")!)
-            )
-            self.realm = try! Realm(configuration: configuration)
-            
-        }
-        
-    }
-    
-   
-    
-
-
-    
-//    func setupRealm() {
-//        // Log in existing user with username and password
-//        let username = "florenz.erstling@gmx.de"  // <--- Update this
-//        let password = "23Safreiiy#"  // <--- Update this
-//        loadingAnimation.start()
-//        uiFields.disableTextField()
-//
-//        SyncUser.logIn(with: .usernamePassword(username: username, password: password, register: false), server: URL(string: "http://10.0.1.4:9080")!) { user, error in
-//            guard let user = user else {
-//                fatalError(String(describing: error))
-//            }
-//            
-//            DispatchQueue.main.async {
-//                // Open Realm
-//                let configuration = Realm.Configuration(
-//                    syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://10.0.1.4:9080/~/sangoo")!)
-//                )
-//                self.realm = try! Realm(configuration: configuration)
-//                
-//                // Show initial tasks
-//                func updateList() {
-//                    if self.authData.realm == nil, let list = self.realm.objects(AuthDataList.self).first {
-//                        self.authDataList = list.authDataItems
-//                    }
-//                    self.tableView.reloadData()
-//                }
-//                updateList()
-//                
-//                // Notify us when Realm changes
-//                self.notificationToken = self.realm.addNotificationBlock { _ in
-//                    updateList()
-//                }
-//                self.loadingAnimation.stop()
-//                self.uiFields.enableTextField()
-//            }
-//        }
-//    }
     
     
     
