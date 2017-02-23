@@ -14,7 +14,7 @@ class CustomTabBarController: UITabBarController {
         
         //setup our custom view controllers
         
-        let connectController = ConnectTableViewController()
+        let connectController = InstantContactViewTableViewController()
         let navController = ContactTableViewController()
         let settingController = SettingsTableViewController()
         let connectNavController = createTabElement(controller: connectController, navTitle : "Gruppen", imageName: "connect")

@@ -46,6 +46,7 @@
 		C0CCC3711E52587A0042BFBF /* SelectDataToShareTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CCC3701E52587A0042BFBF /* SelectDataToShareTableViewController.swift */; };
 		C0FAC67E1E537E10000AD55A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FAC67D1E537E10000AD55A /* LocationManager.swift */; };
 		C8BF49771E5DCD0800213D73 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BF49761E5DCD0800213D73 /* SettingsTableViewController.swift */; };
+		C8BF49791E5F072E00213D73 /* InstantContactViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BF49781E5F072E00213D73 /* InstantContactViewTableViewController.swift */; };
 		D0B8B11D3239515818B82F8F /* Pods_Sangoo_01_01.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C60C44AA55374ED04D244AE /* Pods_Sangoo_01_01.framework */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +95,7 @@
 		C0FAC67D1E537E10000AD55A /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		C2A3942C8A70E9618D4275F9 /* Pods-Sangoo_01_01.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sangoo_01_01.debug.xcconfig"; path = "Sangoo_01_01/Pods/Target Support Files/Pods-Sangoo_01_01/Pods-Sangoo_01_01.debug.xcconfig"; sourceTree = "<group>"; };
 		C8BF49761E5DCD0800213D73 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		C8BF49781E5F072E00213D73 /* InstantContactViewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstantContactViewTableViewController.swift; sourceTree = "<group>"; };
 		E3770501118B713A431347DF /* Pods-Sangoo_01_01.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sangoo_01_01.release.xcconfig"; path = "Sangoo_01_01/Pods/Target Support Files/Pods-Sangoo_01_01/Pods-Sangoo_01_01.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -231,6 +233,7 @@
 				C05AFCB01E52140F007E4974 /* SearchGroupTableViewController.swift */,
 				C0CCC3701E52587A0042BFBF /* SelectDataToShareTableViewController.swift */,
 				C01C30B91E5B24B000A9CC8E /* InstantGroupJSQMessagesViewController.swift */,
+				C8BF49781E5F072E00213D73 /* InstantContactViewTableViewController.swift */,
 			);
 			name = Group;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				C02F68771E52F35C00B9B19D /* GroupViewTableViewController.swift in Sources */,
 				C008DA8F1E47A81600D51D70 /* LocalCookie.swift in Sources */,
 				C0A59C691E3E532200D41669 /* LoginTableViewController.swift in Sources */,
+				C8BF49791E5F072E00213D73 /* InstantContactViewTableViewController.swift in Sources */,
 				C0034FD31E4A7F3800C5CEC3 /* RealmHelper.swift in Sources */,
 				C0C8C76A1E4C4D5000B6BDD9 /* DetailContactTableViewController.swift in Sources */,
 				C05AFCB11E52140F007E4974 /* SearchGroupTableViewController.swift in Sources */,

@@ -32,9 +32,11 @@ class ConnectGroup {
         let connectList = group.connectList
         let connectUserList = ConnectUserList()
         let userIdDescription = ConnectData()
+        let userNameConnectData = user.userData.filter("descriptionGerman == 'Vorname'").first
         userIdDescription.descriptionGerman = "UserId"
         userIdDescription.dataValue = user.userId
         connectUserList.userDescription.append(userIdDescription)
+        connectUserList.userDescription.append(userNameConnectData!)
         connectUserList.userDataShared.append(user.userData[0])
         
         try! realm.write {

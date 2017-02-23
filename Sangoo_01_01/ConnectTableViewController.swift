@@ -23,7 +23,7 @@ class ConnectTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        quickTest()
+        //quickTest()
         setupUI()
         setupRealm(syncUser: SyncUser.current!)
     }
