@@ -79,7 +79,6 @@ class InstantContactViewTableViewController: UITableViewController {
                 if r.count != 0 {
                     self.group = r[0]
                     self.connects = (r[0].connectList?.connectUserList)!
-                    print(self.connects)
                     self.tableView.reloadData()
                 }
                 self.handleSearchResults(groups: r)
@@ -123,6 +122,15 @@ class InstantContactViewTableViewController: UITableViewController {
         
     }
     
+    func goToDetailContacts(sharedData : List<ConnectData>){
+        
+        
+        let v = DetailContactTableViewController()
+        v.sharedData = sharedData
+        navigationController?.pushViewController(v, animated: true)
+        
+    }
+    
     // MARK: tableView
     func handleSearchResults(groups : [GeoData]) {
         print("Anzahl gruppen")
@@ -160,6 +168,11 @@ class InstantContactViewTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let connect = connects[indexPath.row].userDataShared
+        goToDetailContacts(sharedData: connect)
+    }
+    
     func getUserName(userDescription : List<ConnectData>) -> ConnectData{
         
         return userDescription.filter("descriptionGerman == 'Vorname'").first!
@@ -169,11 +182,6 @@ class InstantContactViewTableViewController: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let connect = connects[indexPath.row]
-        goToGroupView(realm: realm, connect: connect)
     }
     
     func goToGroupView(realm : Realm, connect : ConnectUserList?) {
