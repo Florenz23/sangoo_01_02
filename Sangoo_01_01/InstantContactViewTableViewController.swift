@@ -80,6 +80,7 @@ class InstantContactViewTableViewController: UITableViewController {
                     self.group = r[0]
                     self.connects = (r[0].connectList?.connectUserList)!
                     self.tableView.reloadData()
+                    self.goToEditMySharedData()
                 }
                 self.handleSearchResults(groups: r)
                 if r.count == 0 {
@@ -98,6 +99,19 @@ class InstantContactViewTableViewController: UITableViewController {
     deinit {
         notificationToken.stop()
     }
+    func goToEditMySharedData() {
+        
+        let v = EditMySharedData()
+        v.group = self.group
+        navigationController?.pushViewController(v, animated: false)
+        
+    }
+    func quickTest () {
+        
+        goToEditMySharedData()
+        
+    }
+    
     
     func searchGroup() {
         print("search")

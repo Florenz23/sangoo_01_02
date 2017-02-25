@@ -30,6 +30,7 @@ class InstantGroupJSQMessagesViewController: JSQMessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        quickChange()
         setupController()
         if (!cookie.check()){
             print("nicht Eingeloggtt")
@@ -53,6 +54,14 @@ class InstantGroupJSQMessagesViewController: JSQMessagesViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(false)
+    }
+    func quickChange() {
+        goBackToLandingPage()
+    }
+    
+    func goToEditMySharedData() {
+        let v = EditMySharedData()
+        navigationController?.pushViewController(v, animated: false)
     }
     
     

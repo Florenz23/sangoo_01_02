@@ -23,7 +23,8 @@ class ConnectTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //quickTest()
+        print("moin")
+        quickTest()
         setupUI()
         setupRealm(syncUser: SyncUser.current!)
     }
@@ -55,7 +56,7 @@ class ConnectTableViewController: UITableViewController {
     
     func quickTest () {
         
-        let v = InstantGroupJSQMessagesViewController()
+        let v = EditMySharedData()
         navigationController?.pushViewController(v, animated: false)
         
     }
