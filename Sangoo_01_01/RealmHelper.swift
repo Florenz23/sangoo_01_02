@@ -43,4 +43,17 @@ class RealmHelper {
         return connectListList
     }
     
+    func getDescriptionGermanValue(user : ConnectUserList, value : String) -> ConnectData {
+        
+        var searchedObject : ConnectData?
+        for description in user.userDescription {
+            if description.descriptionGerman == value {
+                searchedObject = description
+            }
+        }
+        return searchedObject!
+        
+    }
+
+    
 }

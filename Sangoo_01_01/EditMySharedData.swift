@@ -25,6 +25,7 @@ class EditMySharedData: UITableViewController {
     var realmHelper = RealmHelper()
     var group : GeoData?
     var userData = List<ConnectData>()
+    var userDataShared = List<ConnectData>()
     
     
     
@@ -64,8 +65,8 @@ class EditMySharedData: UITableViewController {
             self.realm = self.realmHelper.iniRealm(syncUser: syncUser)
             self.user = self.realmHelper.getUser(user: self.user)
             self.userData = self.user.userData
-            self.tableView.reloadData()
             self.getUserSharedData()
+            self.tableView.reloadData()
             
         }
         
@@ -83,7 +84,7 @@ class EditMySharedData: UITableViewController {
        let allUser = group?.connectList?.connectUserList
         let correctUser = getCorrectUser(connectUserList: allUser!)
         let userDataShared = correctUser.userDataShared
-        print(userDataShared)
+        self.userDataShared = userDataShared
     }
     
     
@@ -92,17 +93,23 @@ class EditMySharedData: UITableViewController {
         var correctUser : ConnectUserList?
         var userDescriptionWithUserId : ConnectData?
         for user in connectUserList {
-            for description in user.userDescription {
-                if description.descriptionGerman == "UserId" {
-                   userDescriptionWithUserId = description
-                }
-            }
+            userDescriptionWithUserId = realmHelper.getDescriptionGermanValue(user: user, value: "UserId")
             let userId = userDescriptionWithUserId?.dataValue
             if userId == self.user.userId {
                 correctUser = user
             }
         }
         return correctUser!
+    }
+    
+    
+    func checkIfShared(userData : ConnectData) -> Bool{
+        for data in userDataShared {
+            if userData.descriptionGerman == data.descriptionGerman {
+                return true
+            }
+        }
+        return false
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -112,7 +119,7 @@ class EditMySharedData: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return userData.count + 1
+        return userData.count + 1 + userDataShared.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -121,11 +128,16 @@ class EditMySharedData: UITableViewController {
         
         //disableSelection
         if indexPath.row == userData.count && indexPath.row != 0 {
-            cell.textLabel?.text = "Ausloggen"
+            cell.textLabel?.text = "Meine geteilten Daten"
             cell.textLabel?.textColor = UIColor.blue
             
         } else if indexPath.row < userData.count {
             let data = userData[indexPath.row]
+            let textField = UISettings()
+            textField.setupTextField(description: data.descriptionGerman, text: data.dataValue)
+            cell.addSubview(textField.textField)
+        } else if indexPath.row > userData.count {
+            let data = userDataShared[indexPath.row - userData.count - 1]
             let textField = UISettings()
             textField.setupTextField(description: data.descriptionGerman, text: data.dataValue)
             cell.addSubview(textField.textField)
@@ -137,6 +149,7 @@ class EditMySharedData: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == userData.count{
         }
+        print("moin")
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
